@@ -24,6 +24,7 @@
 }
 
 
+
 /* Header section*/
 header {
     height: 80px;
@@ -57,6 +58,7 @@ header {
 .hello {
     color: var(--green);
 }
+
 
 
 /* Hero section*/
@@ -257,6 +259,9 @@ header {
     }
 }
 
+
+
+
 /*Navbar Section*/
 .tabs {
     display: flex;
@@ -308,6 +313,7 @@ header {
         width: 100%; 
     }
 }
+
 
 
 /* Register Farmer section*/
@@ -396,6 +402,8 @@ input:active, select:active {
     width: 200px;
     font-size: 15px;
 }
+
+
 
 /* Pop Up Buttons*/
 .register-popup {
@@ -538,6 +546,8 @@ button:hover {
         font-size: 16px;  
     }
 }
+
+
 
 /*View Section*/
 .content-section {
@@ -943,10 +953,12 @@ button.delete {
     }
 }
 
+/* Disable scrolling on the main page when popup is open */
 body.popup-open {
     overflow: hidden;
 }
 
+/* Popup container - fixed in center */
 #popup {
     position: fixed;
     top: 50%;
@@ -958,18 +970,19 @@ body.popup-open {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: none;
     z-index: 1000;
-    width: 800px; 
-    max-height: 80vh; 
-    overflow-y: auto; 
+    width: 800px;  /* Adjust width as needed */
+    max-height: 80vh;  /* Limits popup height */
+    overflow-y: auto; /* Enables scrolling */
 }
 
-
+/* Ensures popup content does not overflow */
 #popup .product-container {
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
+/* Overlay to darken background when popup appears */
 #popup-overlay {
     position: fixed;
     top: 0;
@@ -981,12 +994,14 @@ body.popup-open {
     z-index: 999;
 }
 
+
+
 .product-container {
     display: flex;
-    flex-direction: column; 
-    gap: 20px; 
-    align-items: center; 
-    justify-content: center; 
+    flex-direction: column; /* 🔹 Stack elements in a column */
+    gap: 20px; /* 🔹 Adds spacing between upload box and product card */
+    align-items: center; /* 🔹 Center items horizontally */
+    justify-content: center; /* 🔹 Align items vertically */
 }
 
 .upload-box {
@@ -1052,13 +1067,13 @@ input:focus, textarea:focus, select:focus {
     background: var(--light);
     padding: 30px;
     border-radius: 20px;
-    width: 900px; 
+    width: 900px; /* 🔹 Allows it to expand */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-grow: 1; 
+    flex-grow: 1; /* 🔹 Allows it to take remaining space */
 }
 
 .product-card label {
@@ -1136,9 +1151,9 @@ body.edit-popup-open {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: none;
     z-index: 1000;
-    width: 800px;  
-    max-height: 80vh;  
-    overflow-y: auto; 
+    width: 800px;  /* Adjust width as needed */
+    max-height: 80vh;  /* Limits popup height */
+    overflow-y: auto; /* Enables scrolling */
 }
 
 #edit-popup .product-container {
@@ -1190,8 +1205,8 @@ body.edit-popup-open {
     border-radius: 10px;
     transition: 0.3s;
     width: 90px;
-    height: 40px; 
-    box-sizing: border-box; 
+    height: 40px; /* Ensure uniform height for buttons */
+    box-sizing: border-box; /* Includes padding in the size calculation */
 }
 
 .Delete-Popup .no-btn {
@@ -1207,7 +1222,6 @@ body.edit-popup-open {
 .Delete-Popup button:hover {
     opacity: 0.8;
 }
-
 
 /*Footer Section*/
 footer {
@@ -1361,3 +1375,8 @@ footer .footer-center {
         font-size: 12px; 
     }
 }
+
+
+
+
+
