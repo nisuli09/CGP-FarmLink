@@ -256,3 +256,56 @@ header {
         flex: 1 1 180px;
     }
 }
+
+/*Navbar Section*/
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 1px;
+    border-bottom: 2px solid var(--gray); 
+    padding-bottom: 20px;
+}
+
+.tabs button {
+    padding: 5px 15px;
+    border:none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tabs button.active {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    border: 2px solid var(--green); 
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column; 
+        gap: 15px; 
+    }
+
+    .tabs button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: 100%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .tabs button {
+        font-size: 14px;
+        padding: 8px 16px;
+        width: 100%; 
+    }
+}
+

@@ -70,3 +70,35 @@
                          // Call updateData every second to keep the time updated
             setInterval(updateData, 1000); 
             updateData();
+
+
+            // Navbar Section 
+document.addEventListener("DOMContentLoaded", function () {
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll(".content-section").forEach(section => {
+            section.style.display = "none";
+        });
+
+        // Show the clicked section
+        document.getElementById(sectionId).style.display = "block";
+
+        // Update active tab
+        document.querySelectorAll(".tabs button").forEach(button => {
+            button.classList.remove("active");
+        });
+
+        document.querySelector(`.tabs button[data-section='${sectionId}']`).classList.add("active");
+    }
+
+    // Attach event listeners to tabs
+    document.querySelectorAll(".tabs button").forEach(button => {
+        button.addEventListener("click", function () {
+            let sectionId = this.getAttribute("data-section");
+            showSection(sectionId);
+        });
+    });
+
+    // Show the default section (Register Farmer)
+    showSection("register-farmer");
+});
