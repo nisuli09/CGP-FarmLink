@@ -1207,3 +1207,157 @@ body.edit-popup-open {
 .Delete-Popup button:hover {
     opacity: 0.8;
 }
+
+
+/*Footer Section*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 60px;
+    background-color: var(--dark-blue);
+    color: white;
+    position: relative;
+    height: 140px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-left .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.footer-center a:hover {
+    text-decoration: underline;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon i {
+    font-size: 16px;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+footer p {
+    position: absolute;
+    bottom: 6px;
+    left: 60px;
+    font-size: 14px;
+}
+
+footer .footer-center {
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 20px;
+        justify-content: center; 
+        height: 150px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        width: 100%; 
+        align-items: center;
+    }
+
+    .footer-social {
+        padding-left: 70px;
+        
+    }
+
+    .footer-right{
+        padding-left: 70px;
+        font-size: 15px;
+    }
+
+    .footer-left .logo {
+        font-size: 22px;
+    }
+
+    footer p {
+        position: absolute;
+        bottom: 60px;
+        left: 120px;
+        transform: translateX(-50%); 
+        font-size: 14px;
+    }
+
+    footer .footer-center {
+        position: absolute;
+        bottom: 10px;
+        left: 300px;
+        transform: translateX(-50%); 
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    footer {
+        padding: 15px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    footer p,
+    footer .footer-center {
+        font-size: 12px; 
+    }
+}
