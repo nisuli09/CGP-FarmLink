@@ -35,3 +35,5 @@ async function registerFarmer() {
         alert("⚠ Failed to register farmer. Please try again!");
     }
 }
+
+loadFarmers();
