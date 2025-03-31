@@ -542,3 +542,104 @@ button:hover {
     }
 }
 
+/*View Section*/
+.content-section {
+    display: flex;                 
+    justify-content: space-between; 
+    padding: 10px;
+    width: 100%;
+}
+
+.content-section h2 {
+    margin: 0;  
+}
+
+.pdf-button {
+    position: absolute;
+    background: var(--green);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left:1005px ;
+    margin-top: -40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+.delete-button {
+    background: var(--red);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .pdf-button {
+        margin-left: 410px; 
+        width: 100%; 
+        text-align: center;
+        display: block;
+        
+    }
+
+    .pdf-button {
+        width: auto;
+        margin-left: 520px;
+        font-size: 10px;
+    }
+
+    table {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content-section {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .pdf-button {
+        width: auto;
+        margin-left: 230px;
+        font-size: 10px;
+    }
+
+    table {
+        width: 400px;
+        font-size: 10px;
+    }
+
+    
+}
+
+@media screen and (max-width: 480px) {
+    .pdf-button {
+        padding: 8px 12px; 
+        font-size: 14px; 
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    table {
+        width:400px;
+        font-size: 10px; 
+    }
+}
+
