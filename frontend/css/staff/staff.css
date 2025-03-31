@@ -310,7 +310,6 @@ header {
 }
 
 
-
 /* Register Farmer section*/
 .form-container {
     background: white;
@@ -397,8 +396,6 @@ input:active, select:active {
     width: 200px;
     font-size: 15px;
 }
-
-
 
 /* Pop Up Buttons*/
 .register-popup {
@@ -643,3 +640,570 @@ table, th, td {
     }
 }
 
+
+/*View shop Section*/
+.section-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    gap: 10px;               
+    margin-top: 7px;
+    padding-right: 550px;
+}
+
+
+.add-button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black; 
+    border-radius: 50%; 
+    padding: 10px; 
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; 
+    height: 30px; 
+    transition: background-color 0.3s ease; 
+    text-align: center;
+}
+
+.add-button:hover {
+    background-color: black; 
+    color: white; 
+}
+
+
+.fertilizer-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 582.5px;
+    height: 50px;
+    background-color: white;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.custom-shape {
+    width: 1165px;
+    height: auto;
+    background-color:var(--b);
+    border-radius: 0px 0px 30px 30px;
+    border: 2px solid var(--gray);
+    position: relative;
+    padding-right: 9px;
+    margin-top: -10px;
+    margin-left: -15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    padding-bottom: 30px;
+    max-width: 1200px; 
+    margin: 15px; 
+}
+
+.card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 6px 4px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.card img {
+    width: 100%;           
+    height: 160px;         
+    object-fit: cover;     
+    border-radius: 15px 15px 0 0; 
+    margin-top: 0;         
+    padding: 0;             
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-top:10px; 
+    align-self: flex-start; 
+}
+
+.description {
+    font-size: 13px;
+    color: black;
+    margin: 8px 0;
+    text-align: left;
+}
+
+.stock-info {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    margin-top: 1px; 
+}
+
+.stock {
+    font-size: 13px; 
+    padding-left: 140px;
+    margin-top: -30px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--gray-text); 
+    padding-left: 120px;
+    
+}
+
+.btn-edit {
+    background: var(--green);
+    margin-right: 10px;
+    box-shadow: 0px 4px 6px var(--shadow);
+}
+
+.btn-delete {
+    background: var(--red);
+    box-shadow: 0px 4px 6px var(--shadow);
+}
+
+
+.rating i {
+    color: var(--yellow);
+    margin-right: 2px; 
+}
+
+.rating span {
+    margin-left: 8px; 
+    font-size: 14px; 
+    color: var(--dark-gray); 
+}
+
+
+.action-buttons { 
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.btn-edit, .btn-delete {
+    width: 90px;  
+    height: 35px; 
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    margin-top: 15px;
+}
+
+.fertilizer-tag {
+    font-size: 28px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-top: auto; 
+    align-self: flex-start; 
+}
+
+.stock-info {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-top: 5px; 
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+button.edit, button.delete {
+    width: 90px;  
+    height: 35px; 
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+button.edit {
+    background: var(--green);
+}
+
+button.delete {
+    background: var(--red);
+}
+
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 20px; 
+        padding-right: 0;
+    }
+
+    h2{
+        font-size: 10px;
+    }
+
+    .card-container {
+        justify-content: center;
+        gap: 10px;
+        width: 300px;
+    }
+
+    .card {
+        width: 100%; 
+        margin-left: 0;
+        padding: 5px;
+    }
+
+    .card img {
+        height: 130px; 
+    }
+
+    .price, .description {
+        font-size: 14px;
+    }
+
+    .btn-edit, .btn-delete {
+        width: 80px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; 
+    }
+
+    .fertilizer-tag {
+        font-size: 18px; 
+    }
+
+    .rating, .action-buttons {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .card img {
+        height: 120px; 
+    }
+}
+
+body.popup-open {
+    overflow: hidden;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    width: 800px; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+}
+
+
+#popup .product-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.upload-box {
+    width: 250px;
+    height: 310px;
+    background-color: var(--white-gray);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.plus-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--green);
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus-button:hover {
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px dashed transparent;
+    background: white;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: border 0.3s ease-in-out;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--dark-gray);
+    font-family: poppins;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border: 1px dashed var(--green);
+    background-color: var(--light);
+}
+
+.product-card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 20px;
+    width: 900px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1; 
+}
+
+.product-card label {
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.stock-control {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 15px;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.stock-control button {
+    background: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#stock-count {
+    font-size: 15px;
+}
+
+.add-to-shop {
+    width: 100%;
+    background: var(--green);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.upload-box img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: fill;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/*edit popup*/
+body.edit-popup-open {
+    overflow: hidden;
+}
+#edit-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+#edit-popup {
+      position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    width: 800px;  
+    max-height: 80vh;  
+    overflow-y: auto; 
+}
+
+#edit-popup .product-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--red);
+}
+
+/* Delete Popup*/
+.Delete-Popup {
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    transform: translateX(-50%) scale(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    visibility: hidden;
+    transition: transform 0.3s, visibility 0.3s;
+}
+
+.Delete-Popup .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center; 
+}
+
+.Delete-Popup button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 90px;
+    height: 40px; 
+    box-sizing: border-box; 
+}
+
+.Delete-Popup .no-btn {
+    background-color: var(--green);
+    color: white;
+}
+
+.Delete-Popup .delete-btn {
+    background-color: var(--red);
+    color: white;
+}
+
+.Delete-Popup button:hover {
+    opacity: 0.8;
+}

@@ -204,3 +204,940 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//View Shop section
+document.addEventListener("DOMContentLoaded", function () {
+    const customShape = document.querySelector(".custom-shape");
+
+    let isFertilizerVisible = false; 
+
+    document.addEventListener("click", function (event) {
+        // If "Fertilizer" is clicked
+        if (event.target.closest(".fertilizer-tag") && !isFertilizerVisible) {
+            customShape.innerHTML = `
+                <div class="fertilizer-tag">Fertilizer
+                    <button class="add-button" onclick="openPopup()"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="rent-tag">
+                    <h2 class="section-title">Rent Items</h2>
+                </div>
+
+<!-- add Popup -->
+<div id="popup-overlay"></div>
+
+<div id="popup">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <div class="product-container">
+        <div class="upload-box">
+            <input type="file" id="imageUpload" accept="image/*" hidden>
+            <button class="plus-button" onclick="document.getElementById('imageUpload').click();" aria-label="Upload image">
+                <i class="fas fa-camera"></i>
+            </button>
+        </div>
+
+        <div class="product-card">
+            <label for="productTitle">Product Name</label>
+            <input type="text" id="productTitle" placeholder="Enter product name">
+
+            <label for="productDescription">Product Description</label>
+            <textarea id="productDescription" placeholder="Add Detailed Description"></textarea>
+
+            <label for="productPrice">Price</label>
+            <input type="text" id="productPrice" placeholder="Enter price">
+
+            <label for="stock">Stock</label>
+            <div class="stock-control">
+                <button id="decrease">−</button>
+                <span id="stock-count">02</span>
+                <button id="increase">+</button>
+            </div>
+
+            <button class="add-to-shop" onclick="addToShop()">Add to shop</button>
+        </div>
+    </div>
+</div>
+<!-- add Popup -->
+
+                <div class="card-container">
+                    <div class="card">
+                        <img src="../assets/image_13.png" alt="Urea">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="title">Urea</h3>
+                                <span class="id-no">201</span>
+                            </div>
+                            <p class="description">Urea is a widely used nitrogen-based fertilizer.</p>
+                            <span class="price">Rs 990.00</span>
+                            <div class="stock-info">
+                                <span class="stock"><b>30KG In Stock</b></span>
+                                <span class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>4.0</span>
+                                </span>
+                            </div>
+                            <div class="buttons">
+                                <button class="edit" onclick="openEditPopup(this)">Edit</button>
+                                <button class="delete" onclick="openDeletePopup(this)">Delete</button>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="../assets/image_14.png" alt="Ammonium Sulfate">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="title">Ammonium Sulfate</h3>
+                                <span class="id-no">202</span>
+                            </div>
+                            <p class="description">Ammonium Sulfate – Provides nitrogen and sulfur.</p>
+                            <span class="price">Rs 1000.00</span>
+                            <div class="stock-info">
+                                <span class="stock"><b>30KG In Stock</b></span>
+                                <span class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>4.0</span>
+                                </span>
+                            </div>
+                            <div class="buttons">
+                                <button class="edit" onclick="openEditPopup(this)">Edit</button>
+                                <button class="delete" onclick="openDeletePopup(this)">Delete</button>
+                            </div> 
+                        </div>
+                    </div>
+
+                       <div class="card">
+                    <img src="../assets/image_15.png" alt="calciumammoniumnitrate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">calcium ammonium nitrate</h3>
+                            <span class="id-no">203</span>
+                        </div>
+                        <p class="description">Calcium Ammonium Nitrate – A slow-release nitrogen fertilizer.</p>
+                        <span class="price">Rs 1200.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>35KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_16.png" alt="SingleSuperPhosphate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Single Super Phosphate</h3>
+                            <span class="id-no">204</span>
+                        </div>
+                        <p class="description">Machines combine harvesters used to cut and gather rice.</p>
+                        <span class="price">Rs 900.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>20KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-container">
+                <div class="card">
+                    <img src="../assets/image_17.png" alt="TripleSuperPhosphate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Triple Super Phosphate</h3>
+                            <span class="id-no">205</span>
+                        </div>
+                        <p class="description">Triple Super Phosphate – A concentrated source of phosphorus.</p>
+                        <span class="price">Rs 1100.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>10KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_18.png" alt="Di-Ammonium Phosphate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Di-Ammonium Phosphate</h3>
+                            <span class="id-no">206</span>
+                        </div>
+                        <p class="description">Di-Ammonium Phosphate –Provides both nitrogen and phosphorus.</p>
+                        <span class="price">Rs 850.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>20KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_19.png" alt="LiquidPhosphoricAcid">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Liquid Phosphoric Acid</h3>
+                            <span class="id-no">207</span>
+                        </div>
+                        <p class="description">Liquid Phosphoric Acid – Promotes strong roots and early flowering.</p>
+                        <span class="price">Rs 750.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>15 In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_20.png" alt="Mono-Ammonium Phosphate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Mono-Ammonium Phosphate</h3>
+                            <span class="id-no">208</span>
+                        </div>
+                        <p class="description">MonoAmmonium Phosphate – Provide nitrogen and phosphorus.</p>
+                        <span class="price">Rs 1250.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>15KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-container">
+                <div class="card">
+                    <img src="../assets/image_21.png" alt="FoliarSpray">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Foliar Spray</h3>
+                            <span class="id-no">209</span>
+                        </div>
+                        <p class="description">Foliar Spray – Directly sprayed onto leaves for quick absorption .</p>
+                        <span class="price">Rs 950.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>19 In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_22.png" alt="Silicon-BasedFertilizers">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Silicon-Based Fertilizers</h3>
+                            <span class="id-no">210</span>
+                        </div>
+                        <p class="description">Silicon-Based Fertilizers – Improves disease resistance and strengthens rice plants.</p>
+                        <span class="price">Rs 980.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>30KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_23.png" alt="LiquidNPKFertilizers">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Liquid NPK Fertilizers</h3>
+                            <span class="id-no">211</span>
+                        </div>
+                        <p class="description">Liquid NPK Fertilizers – Balanced nutrient supply through leaves.</p>
+                        <span class="price">Rs 1750.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>25In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_24.png" alt="Compost">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Compost</h3>
+                            <span class="id-no">212</span>
+                        </div>
+                        <p class="description">Compost – Improves soil structure and microbial activity.</p>
+                        <span class="price">Rs 700.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>30KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <img src="../assets/image_25.png" alt="ZincSulfate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">ZincSulfate</h3>
+                            <span class="id-no">213</span>
+                        </div>
+                        <p class="description">Zinc Sulfate – Prevents zinc deficiency (common in paddy).</p>
+                        <span class="price">Rs 970.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>25KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_26.png" alt="Humic&FulvicAcidFertilizers">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Humic & Fulvic Acid Fertilizers</h3>
+                            <span class="id-no">214</span>
+                        </div>
+                        <p class="description">Humic & Fulvic Acid – Improves soil structure and nutrient uptake.</p>
+                        <span class="price">Rs 1000.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>17 In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_27.png" alt="FerrousSulfate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Ferrous Sulfate</h3>
+                            <span class="id-no">215</span>
+                        </div>
+                        <p class="description">Ferrous Sulfate – Supplies iron to prevent iron chlorosis.</p>
+                        <span class="price">Rs 880.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>23 KG In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../assets/image_28.png" alt="PotassiumSilicate">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3 class="title">Potassium Silicate</h3>
+                            <span class="id-no">216</span>
+                        </div>
+                        <p class="description">Potassium Silicate – Strengthens cell walls and improves resistance to diseases.</p>
+                        <span class="price">Rs 1150.00</span>
+                        <div class="stock-info">
+                            <span class="stock"><b>14 In Stock</b></span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </span>
+                        </div>
+                        <div class="buttons">
+                            <button class="edit" onclick="openEditPopup(this)">edit</button>
+                            <button class="delete" onclick="openDeletePopup(this)">delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+<div id="popup-overlay"></div>
+
+<div id="edit-popup">
+    <span class="close-btn" onclick="closeEditPopup()">&times;</span>
+    <div class="product-container">
+        <div class="upload-box">
+            <input type="file" id="editImageUpload" accept="image/*" hidden>
+            <img id="editImagePreview" src="" alt="Product Image">
+        </div>
+
+        <div class="product-card">
+            <label for="editProductTitle">Product Name</label>
+            <input type="text" id="editProductTitle" placeholder="Enter product name">
+
+            <label for="editProductDescription">Product Description</label>
+            <textarea id="editProductDescription" placeholder="Add Detailed Description"></textarea>
+
+            <label for="editProductPrice">Price</label>
+            <input type="text" id="editProductPrice" placeholder="Enter price">
+
+            <label for="editStock">Stock</label>
+            <div class="stock-control">
+                <button id="editDecrease">−</button>
+                <span id="editStockCount">0</span>
+                <button id="editIncrease">+</button>
+            </div>
+
+            <button class="add-to-shop" onclick="saveEditChanges()">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="Delete-Popup" id="Delete-Popup">
+    <p>Do you want to delete this?</p>
+    <div class="buttons">
+        <button class="no-btn" onclick="handleNo()">No</button>
+        <button class="delete-btn" onclick="handleDelete()">Delete</button>
+    </div>
+</div>
+         
+            `;
+            isFertilizerVisible = true;
+        }
+        // If "Rent Items" is clicked
+        else if (event.target.closest(".rent-tag") && isFertilizerVisible) {
+            customShape.innerHTML = `
+                    <div class="fertilizer-tag">Fertilizer</div>
+                    <div class="rent-tag">
+                         <h2 class="section-title">
+                         Rent Items
+                         <button class="add-button" onclick="openPopup()"><i class="fas fa-plus"></i></button>
+                         </h2>
+                     </div>
+
+<div id="popup-overlay"></div>
+
+<div id="popup">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <div class="product-container">
+        <div class="upload-box">
+            <input type="file" id="imageUpload" accept="image/*" hidden>
+            <button class="plus-button" onclick="document.getElementById('imageUpload').click();" aria-label="Upload image">
+                <i class="fas fa-camera"></i>
+            </button>
+        </div>
+
+        <div class="product-card">
+            <label for="productTitle">Product Name</label>
+            <input type="text" id="productTitle" placeholder="Enter product name">
+
+            <label for="productDescription">Product Description</label>
+            <textarea id="productDescription" placeholder="Add Detailed Description"></textarea>
+
+            <label for="productPrice">Price</label>
+            <input type="text" id="productPrice" placeholder="Enter price">
+
+            <label for="stock">Stock</label>
+            <div class="stock-control">
+                <button id="decrease">−</button>
+                <span id="stock-count">02</span>
+                <button id="increase">+</button>
+            </div>
+
+            <button class="add-to-shop" onclick="addToShop()">Add to shop</button>
+        </div>
+    </div>
+</div>
+
+ 
+          <div class="card-container">
+            <div class="card">
+                <img src="../assets/image_1.png" alt="Tractor">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Tractor</h3>
+                        <span class="id-no">101</span>
+                    </div>
+                    <p class="description">Used For Plowing, Tilling, And Sometimes Transporting Paddy.</p>
+                    <span class="price">Rs 5000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>3 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div>                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_2.png" alt="Plows">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Plows</h3>
+                        <span class="id-no">102</span>
+                    </div>
+                    <p class="description">Traditional tools for breaking the soil before planting.</p>
+                    <span class="price">Rs 6000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>3 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div>                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_3.png" alt="RiceTransplanters">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Rice Transplanters</h3>
+                        <span class="id-no">103</span>
+                    </div>
+                    <p class="description">Machines transplant rice seedings nurseries to the field.</p>
+                    <span class="price">Rs 3000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>2 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div>                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_4.png" alt="Harvesters">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Harvesters</h3>
+                        <span class="id-no">104</span>
+                    </div>
+                    <p class="description">Machines combine harvesters used to cut and gather rice.</p>
+                    <span class="price">Rs 5000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>3 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="../assets/image_5.png" alt="Water Pumps">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Water Pumps</h3>
+                        <span class="id-no">105</span>
+                    </div>
+                    <p class="description">Used for irrigation and draining water from the field.</p>
+                    <span class="price">Rs 2000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>5 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_6.png" alt="Rotary Tillers">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Rotary Tillers</h3>
+                        <span class="id-no">106</span>
+                    </div>
+                    <p class="description">Used for preparing the soil and breaking down clumps.</p>
+                    <span class="price">Rs 5000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>4 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_7.png" alt="Threshers">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Threshers</h3>
+                        <span class="id-no">107</span>
+                    </div>
+                    <p class="description">Separate the rice grain from the husk after harvest.</p>
+                    <span class="price">Rs 4000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>3 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_8.png" alt="Sprayers">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Sprayers</h3>
+                        <span class="id-no">108</span>
+                    </div>
+                    <p class="description">Used for applying pesticides and fertilizers to protect crops.</p>
+                    <span class="price">Rs 2000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>6 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <img src="../assets/image_9.png" alt="DiskHarrow">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Disk Harrow</h3>
+                        <span class="id-no">109</span>
+                    </div>
+                    <p class="description">Breaks up soil clumps after plowing for better aeration.</p>
+                    <span class="price">Rs 5000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>4 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_10.png" alt="Sickle">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Sickle</h3>
+                        <span class="id-no">110</span>
+                    </div>
+                    <p class="description">A traditional hand tool for cutting rice stalks.</p>
+                    <span class="price">Rs 1000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>8 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_11.png" alt="WinnowingMachine">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Winnowing Machine</h3>
+                        <span class="id-no">111</span>
+                    </div>
+                    <p class="description">Helps remove husk and impurities from rice grains.</p>
+                    <span class="price">Rs 2500.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>7 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/image_12.png" alt="CombineHarvester">
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="title">Combine Harvester</h3>
+                        <span class="id-no">112</span>
+                    </div>
+                    <p class="description">Multi-functional machine cuts, threshes, and cleans the grains.</p>
+                    <span class="price">Rs 6000.00</span>
+                    <div class="stock-info">
+                        <span class="stock"><b>4 In Stock</b></span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                        <button class="btn-delete" onclick="openDeletePopup(this)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+    <div id="popup-overlay"></div>
+
+<div id="edit-popup">
+    <span class="close-btn" onclick="closeEditPopup()">&times;</span>
+    <div class="product-container">
+        <div class="upload-box">
+            <input type="file" id="editImageUpload" accept="image/*" hidden>
+            <img id="editImagePreview" src="" alt="Product Image">
+        </div>
+
+        <div class="product-card">
+            <label for="editProductTitle">Product Name</label>
+            <input type="text" id="editProductTitle" placeholder="Enter product name">
+
+            <label for="editProductDescription">Product Description</label>
+            <textarea id="editProductDescription" placeholder="Add Detailed Description"></textarea>
+
+            <label for="editProductPrice">Price</label>
+            <input type="text" id="editProductPrice" placeholder="Enter price">
+
+            <label for="editStock">Stock</label>
+            <div class="stock-control">
+                <button id="editDecrease">−</button>
+                <span id="editStockCount">0</span>
+                <button id="editIncrease">+</button>
+            </div>
+
+            <button class="add-to-shop" onclick="saveEditChanges()">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="Delete-Popup" id="Delete-Popup">
+    <p>Do you want to delete this?</p>
+    <div class="buttons">
+        <button class="no-btn" onclick="handleNo()">No</button>
+        <button class="delete-btn" onclick="handleDelete()">Delete</button>
+    </div>
+</div>
+            `;
+            isFertilizerVisible = false;
+        }
+    });
+});
