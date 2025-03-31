@@ -65,6 +65,93 @@
            <button data-section="view-buyers">View Buyers</button>
        </section>
         <!-- Navbar section -->
-         
+
+        <!-- Register Farmer Section -->
+  <section id="register-farmer" class="content-section">
+    <h2>Register Farmer</h2>
+    <form id="farmerForm">  <!-- Add the ID here -->
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="input" id="FirstName" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="input" id="LastName" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="input" id="Email" type="email" placeholder="name@email.com" required>
+        </div>
+        <div class="form-group">
+            <label>Contact Number</label>
+            <input class="input" id="Contact" type="text" placeholder="0XXX XXX XXX" required>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input class="input" id="Address" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>NIC</label>
+            <input class="input" id="NIC" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <select class="input" id="Gender" required>
+                <option></option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Acc No</label>
+            <input class="input" id="AccNumber" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <input class="input" id="Location" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Acres</label>
+            <input class="input" id="Acres" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Compost</label>
+            <input class="input" id="Compost" type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label>Harvest</label>
+            <input class="input" id="Harvest" type="text" placeholder="" required>
+        </div>
+        
+        <div class="form-actions">
+            <button type="button" class="register" onclick="registerFarmer()">Register</button>
+            <button type="button" class="discard" onclick="openDiscardPopup()">Discard</button>
+        </div>
+    </form>
+</section>
+<!-- Register Farmer Section -->
+
+                    <!-- Register Popup -->
+                    <div class="register-popup" id="registerpopup">
+                        <p>Farmer Registered Successfully!</p>
+                        <div class="buttons">
+                            <button class="ok-btn" onclick="closePopup()">OK</button>
+                        </div>
+                    </div>
+                    <!-- Register Popup -->
+
+                    <!-- Discard Confirmation Popup -->
+                    <div class="discard-popup" id="discardPopup">
+                        <p>Are you sure you want to discard the changes?</p>
+                        <div class="buttons">
+                            <button class="yes-btn" onclick="discardChanges()">Yes</button>
+                            <button class="no-btn" onclick="closeDiscardPopup()">No</button>
+                        </div>
+                    </div>
+                    <!-- Discard Confirmation Popup -->
+                </form>
+            <!-- Register Farmer Section -->
+
+
          </section>
      </main>
