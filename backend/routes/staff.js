@@ -69,4 +69,19 @@ router.post("/register", (req, res) => {
   );
 });
 
+// Fetch all farmers
+router.get("/getFarmers", (req, res) => {
+    const sql = "SELECT * FROM Farmer";  // Ensure 'farmer' is the correct table name
+  
+    db.query(sql, (err, results) => {
+      if (err) {
+        console.error("Error fetching farmers:", err);
+        return res.status(500).json({ error: "Database error!" });
+      }
+      res.status(200).json(results);
+    });
+  });
+  
+
 module.exports = router;
+
