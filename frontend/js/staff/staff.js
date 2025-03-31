@@ -1141,3 +1141,279 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+//Add Shop Popup
+// Stock control functionality
+const decreaseButton = document.getElementById('decrease');
+const increaseButton = document.getElementById('increase');
+const stockCount = document.getElementById('stock-count');
+
+let stock = 2;
+
+function updateStock() {
+  stockCount.textContent = stock < 10 ? `0${stock}` : stock;
+}
+
+decreaseButton.addEventListener('click', () => {
+  if (stock > 1) {
+    stock--;
+    updateStock();
+  }
+});
+
+increaseButton.addEventListener('click', () => {
+  stock++;
+  updateStock();
+});
+
+// Ensure stock is updated on load
+updateStock();
+
+// Image upload functionality
+const imageUpload = document.getElementById('imageUpload');
+const uploadBox = document.querySelector('.upload-box');
+const plusButton = document.querySelector('.plus-button');
+let uploadedImage = null;
+
+function clearPreviousImage() {
+    const existingImage = uploadBox.querySelector('img');
+    if (existingImage) {
+        existingImage.remove();
+    }
+}
+
+imageUpload.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            clearPreviousImage(); 
+
+            plusButton.style.display = 'none';
+
+            const imgPreview = document.createElement('img');
+            imgPreview.src = e.target.result;
+            imgPreview.alt = file.name;
+
+            imgPreview.style.width = '100%';
+            imgPreview.style.height = '100%';
+            imgPreview.style.objectFit = 'cover';
+            imgPreview.style.borderRadius = '20px';
+            imgPreview.style.position = 'absolute';
+            imgPreview.style.top = '0';
+            imgPreview.style.left = '0';
+
+            uploadBox.appendChild(imgPreview);
+            uploadedImage = imgPreview.src; // Store image URL for later use
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Open Popup
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-overlay").style.display = "block";
+    document.body.classList.add("popup-open"); 
+}
+
+// Close Popup
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("popup-overlay").style.display = "none";
+    document.body.classList.remove("popup-open"); 
+}
+
+// Close popup when clicking outside of it
+document.getElementById("popup-overlay").addEventListener("click", closePopup);
+
+// Add to Shop functionality
+function addToShop() {
+    const productTitle = document.getElementById('productTitle').value;
+    const productDescription = document.getElementById('productDescription').value;
+    const productPrice = document.getElementById('productPrice').value;
+    const productStock = stock;
+
+    // Validate form data
+    if (!productTitle || !productDescription || !productPrice || !uploadedImage) {
+        alert("Please fill in all the fields and upload an image.");
+        return;
+    }
+
+    // Create a new card for the product
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+        <img src="${uploadedImage}" alt="${productTitle}">
+        <div class="card-content">
+            <div class="card-header">
+                <h3 class="title">${productTitle}</h3>
+                <span class="id-no">${Math.floor(Math.random() * 1000)}</span>
+            </div>
+            <p class="description">${productDescription}</p>
+            <span class="price">Rs ${productPrice}</span>
+            <div class="stock-info">
+                <span class="stock"><b>${productStock} In Stock</b></span>
+                <span class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>4.0</span>
+                </span>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-edit" onclick="openEditPopup(this)">Edit</button>
+                <button class="btn-delete" onclick="openPopup()">Delete</button>
+            </div> 
+        </div>
+    `;
+
+    // Log for debugging
+    console.log('Product Added:', {
+        productTitle,
+        productDescription,
+        productPrice,
+        uploadedImage,
+        productStock
+    });
+
+    // Append the new card to the shop container
+    const shopContainer = document.getElementById('shop');  // Ensure the shop container exists in your HTML
+    if (shopContainer) {
+        shopContainer.appendChild(card);
+    } else {
+        console.log("Shop container not found.");
+    }
+
+    // Close the popup
+    closePopup();
+
+    // Reset form fields
+    document.getElementById('productTitle').value = '';
+    document.getElementById('productDescription').value = '';
+    document.getElementById('productPrice').value = '';
+    stock = 2; // Reset stock to default value
+    updateStock();
+}
+
+//Edit Popup
+let currentCard = null; // Track the card being edited
+
+function openEditPopup(button) {
+  currentCard = button.closest('.card'); // Store the card being edited
+
+  // Extract product details
+  document.getElementById('editProductTitle').value = currentCard.querySelector('.title').innerText;
+  document.getElementById('editProductDescription').value = currentCard.querySelector('.description').innerText;
+  document.getElementById('editProductPrice').value = currentCard.querySelector('.price').innerText.replace('Rs ', '');
+  document.getElementById('editStockCount').innerText = currentCard.querySelector('.stock').innerText.split(' ')[0];
+
+  // Extract and display image
+  const imageSrc = currentCard.querySelector('img').src;
+  document.getElementById('editImagePreview').src = imageSrc;
+
+  // Show popup
+  document.getElementById('popup-overlay').style.display = 'block';
+  document.getElementById('edit-popup').style.display = 'block';
+}
+
+function saveEditChanges() {
+  if (!currentCard) return; // Ensure a card is selected
+
+  // Update card values
+  currentCard.querySelector('.title').innerText = document.getElementById('editProductTitle').value;
+  currentCard.querySelector('.description').innerText = document.getElementById('editProductDescription').value;
+  currentCard.querySelector('.price').innerText = `Rs ${document.getElementById('editProductPrice').value}`;
+
+  // Ensure the stock count updates correctly
+  const stockCountElement = document.getElementById('editStockCount');
+  const stockText = `${stockCountElement.innerText} in stock`;
+  currentCard.querySelector('.stock').innerText = stockText;
+
+  // Update image if a new one is uploaded
+  const imageInput = document.getElementById('editImageUpload');
+  if (imageInput.files && imageInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      currentCard.querySelector('img').src = e.target.result;
+    };
+    reader.readAsDataURL(imageInput.files[0]);
+  }
+
+  // Close popup
+  closeEditPopup();
+}
+
+function closeEditPopup() {
+  document.getElementById('popup-overlay').style.display = 'none';
+  document.getElementById('edit-popup').style.display = 'none';
+  currentCard = null; // Reset card
+}
+
+// Handle Stock Count Buttons
+
+// Increase Stock
+document.getElementById('editIncrease').addEventListener('click', function() {
+  const stockCountElement = document.getElementById('editStockCount');
+  let stockCount = parseInt(stockCountElement.innerText);
+  stockCountElement.innerText = stockCount + 1;
+});
+
+// Decrease Stock
+document.getElementById('editDecrease').addEventListener('click', function() {
+  const stockCountElement = document.getElementById('editStockCount');
+  let stockCount = parseInt(stockCountElement.innerText);
+  if (stockCount > 0) {
+    stockCountElement.innerText = stockCount - 1;
+  }
+});
+
+// Delete Popup
+
+// Function to open the delete popup near the card
+function openDeletePopup(button) {
+    // Get the card associated with the clicked delete button
+    const card = button.closest('.card'); 
+    
+    // Store the card element in a global variable for later use
+    window.cardToDelete = card;
+
+    // Get the popup element
+    let popup = document.getElementById("Delete-Popup");
+
+    // Get the card's position relative to the page
+    let cardRect = card.getBoundingClientRect();
+
+    // Set the popup's position next to the card (e.g., to the right of the card)
+    popup.style.left = cardRect.right + window.scrollX + 10 + 'px'; // Right of the card with a 10px offset
+    popup.style.top = cardRect.top + window.scrollY + 'px'; // Align it vertically with the top of the card
+
+    // Show the delete popup near the card
+    popup.style.visibility = "visible";
+    popup.style.transform = "scale(1)"; // Show the popup with a scaling transition
+}
+
+// Function to close the delete popup (when "No" is clicked)
+function handleNo() {
+    closeDeletePopup(); // Close the delete popup
+}
+
+// Function to close the delete popup
+function closeDeletePopup() {
+    let popup = document.getElementById("Delete-Popup");
+    popup.style.visibility = "hidden";
+    popup.style.transform = "scale(0)"; // Hide the popup
+}
+
+// Function to handle the "Delete" button click (remove the card)
+function handleDelete() {
+    // If a card is stored, remove it from the DOM
+    if (window.cardToDelete) {
+        window.cardToDelete.remove(); // Remove the card from the page
+    }
+    closeDeletePopup(); // Close the popup after deleting
+}
