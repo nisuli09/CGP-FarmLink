@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Harvest</title>
+    <link rel="stylesheet" href="style3.css">
+    <script defer src="script3.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Create Staff</a></li>
+            <li><a href="viewstaff.html">View Staff</a></li>
+            <li><a href="viewfarmer.html">View Farmer</a></li>
+            <li><a href="viewharvest.html" class="active">View Harvest</a></li>
+            <li><a href="viewshop.html" >View Shop</a></li>
+            <li><a href="viewbuyer.html">View Buyers</a></li>
+        </ul>
+    </nav>
+    
+
+
+    <div class="container">
+        <h1>View Harvest</h1>
+        <button class="pdf-btn">PDF ↓</button>
+
+        <div class="table-container">
+            <table id="buyerTable">
+                <thead>
+                    <tr>
+                        <th>Buyer ID</th>
+                        <th> contact_number</th>
+                        <th>total_harvest</th>
+                        <th>unit_price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Buyer data will be loaded dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button class="prev-btn">◀</button>
+            <button class="next-btn">▶</button>
+        </div>
+    </div>
+    <div id="navbar-container"></div>
+</body>
+</html>
