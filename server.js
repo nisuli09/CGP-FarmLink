@@ -35,3 +35,4 @@ app.get("/api/farmer/details", (req, res) => {
     res.status(200).json(results); // Send farmer data as JSON response
   });
 });
+

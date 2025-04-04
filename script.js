@@ -62,6 +62,28 @@ async function registerFarmer() {
     }
   }
 
+  // === Load Fertilizers ===
+async function loadFertilizers() {
+    const container = document.getElementById("fertilizer-container");
+    const res = await fetch("http://localhost:5000/api/fertilizers");
+    const items = await res.json();
+    container.innerHTML = "";
+  
+    items.forEach(item => {
+      container.innerHTML += `
+        <div class="card">
+          <img src="${item.fert_image}" alt="${item.fert_name}">
+          <h3>${item.fert_name}</h3>
+          <p>Rs ${item.fert_price}</p>
+          <p>Stock: ${item.fert_stock}</p>
+          <div class="actions">
+            <button class="btn btn-edit" onclick="editProduct(${item.fert_id}, 'fert')">Edit</button>
+            <button class="btn btn-delete" onclick="deleteProduct(${item.fert_id}, 'fert')">Delete</button>
+          </div>
+        </div>`;
+    });
+  }
+
 
 
 
@@ -69,6 +91,7 @@ async function registerFarmer() {
 
   window.onload = () => {
     registerFarmer();
-    loadFarmers()
+    loadFarmers();
+    loadFertilizers();
 
   }
