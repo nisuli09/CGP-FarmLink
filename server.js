@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const db = require("./backend/db");
 const staffRoutes = require("./backend/routes/staff");
 
 require("dotenv").config();
