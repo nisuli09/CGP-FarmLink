@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Harvest</title>
+    <link rel="stylesheet" href="../css/viewharvest.css">
+</head>
+<body>
+    <div class="container">
+        <!--Navbar section-->
+        <nav>
+            <a href="#">Register Farmer</a>
+            <a href="#">View Farmer</a>
+            <a href="#" class="active">View Harvest</a>
+            <a href="#">View Shop</a>
+            <a href="#">View Buyers</a>
+        </nav>
+        
+        <div class="header-section">
+            <h2>View Harvest</h2>
+            <button class="pdf-button">Download PDF</button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Farmer ID</th>
+                    <th>Name</th>
+                    <th>Contact No</th>
+                    <th>Location</th>
+                    <th>Total Harvest</th>
+                    <th>Unit Price (1kg)</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody id="farmerTableBody">
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/viewharvest.js"></script>
+</body>
+</html>
