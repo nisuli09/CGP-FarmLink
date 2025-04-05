@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Shop Item</title>
+    <link rel="stylesheet" href="../css/edit.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Image Box -->
+        <div class="image-container">
+            <img src="../assets/image_1.png" alt="Tractor in the field">
+        </div>
+        
+        <!-- Product Info Section -->
+        <div class="info">
+            <div class="editable-container">
+                <h1 contenteditable="false" id="productTitle">Tractor</h1>
+                <i class="fas fa-edit edit-icon" onclick="toggleEdit('productTitle', this)"></i>
+            </div>
+            <div class="editable-container">
+                <p contenteditable="false" id="productDescription">Used for plowing, tilling, and sometimes transporting paddy.</p>
+                <i class="fas fa-edit edit-icon" onclick="toggleEdit('productDescription', this)"></i>
+            </div>
+            <div class="editable-container">
+                <h2 contenteditable="false" id="productPrice">Rs 5000.00</h2>
+                <i class="fas fa-edit edit-icon" onclick="toggleEdit('productPrice', this)"></i>
+            </div>
+        
+            <label for="category">Category</label>
+            <select id="category">
+                <option>Select Category</option>
+                <option>Rent Items</option>
+                <option>Fertilizer</option>
+            </select>
+    
+            <label for="stock">Stock</label>
+            <div class="stock-container">
+                <button class="decrease" onclick="updateStock(-1)">−</button>
+                <input type="text" id="stock" value="02" readonly>
+                <button class="increase" onclick="updateStock(1)">+</button>
+            </div>
+    
+            <button class="save-btn" onclick="saveChanges()">Save</button>
+        </div>
+    </div>
+
+    <script src="../js/edit.js"></script>
+</body>  
+</html>

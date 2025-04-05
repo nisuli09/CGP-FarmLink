@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Shop Item</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/addshop.css">
+</head>
+<body>
+
+    <div class="product-container">
+        <!-- Upload Box -->
+        <div class="upload-box">
+            <input type="file" id="imageUpload" accept="image/*" hidden>
+            <button class="plus-button" onclick="document.getElementById('imageUpload').click();" aria-label="Upload image">
+                <i class="fas fa-camera"></i> <!-- Camera icon -->
+            </button>
+        </div>
+
+        <!-- Product Card -->
+        <div class="product-card">
+            <label for="productTitle">Product Name</label>
+            <input type="text" id="productTitle"  placeholder="Enter product name">
+
+            <label for="productDescription">Product Description</label>
+            <textarea id="productDescription" placeholder="Add Detailed Description for Fertilizer or Rent Item"></textarea>
+
+            <label for="productPrice">Price</label>
+            <input type="text" id="productPrice" placeholder="Enter price">
+
+            <label for="category">Category</label>
+            <select id="category">
+                <option>Select Category</option>
+                <option>Rent Items</option>
+                <option>Fertilizer</option>
+            </select>
+
+            <label for="stock">Stock</label>
+            <div class="stock-control">
+                <button id="decrease">−</button>
+                <span id="stock-count">02</span>
+                <button id="increase">+</button>
+            </div>
+
+            <button class="add-to-shop">Add to shop</button>
+        </div>
+    </div>
+
+    <script src="../js/addshop.js"></script>
+</body>
+</html>
