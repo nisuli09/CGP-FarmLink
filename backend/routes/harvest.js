@@ -6,14 +6,14 @@ const router = express.Router();
 router.get("/getHarvest", (req, res) => {
   const farmerID = req.params.FarmerID;
 
-  const sql = SELECT * FROM Harvest;
+  const sql = `SELECT * FROM Harvest`;
 
   db.query(sql, [farmerID], (err, results) => {
     if (err) {
       console.error("Error fetching harvest data:", err);
       return res.status(500).json({ error: "Database error!" });
     }
-    res.status(200).json(results); 
+    res.status(200).json(results); // Send the results as a JSON response
   });
 });
 
