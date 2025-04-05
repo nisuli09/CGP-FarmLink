@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Farmer</title>
+    <link rel="stylesheet" href="../css/viewfarmer.css">
+</head>
+<body>
+    <!-- View Farmer Section -->
+    <section class="container">
+        <section class="tabs">
+            <button>Register Farmer</button>
+            <button class="active">View Farmers</button>
+            <button>View Harvest</button>
+            <button>View Shop</button>
+            <button>View Buyers</button>
+        </section>
+        
+        <section class="view-farmer">
+            <h2>View Farmer</h2>
+            <button class="pdf-button">Download PDF</button>
+        </section>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>NIC</th>
+                    <th>Acc No</th>
+                    <th>Location</th>
+                    <th>Acres</th>
+                    <th>Compost</th>
+                    <th>Harvest</th>  
+                </tr>
+            </thead>
+            <tbody id="farmerTableBody">
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="/js/viewfarmer.js"></script>
+</body>
+</html>
