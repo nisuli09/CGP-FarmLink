@@ -39,3 +39,34 @@ function clearPreviousImage() {
 }
 
 
+// Handle image upload
+imageUpload.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            clearPreviousImage(); // Remove old image preview
+
+            // Hide camera icon
+            plusButton.style.display = 'none';
+
+            // Create image element
+            const imgPreview = document.createElement('img');
+            imgPreview.src = e.target.result;
+            imgPreview.alt = file.name;
+
+            // Ensure the image fills the upload box
+            imgPreview.style.width = '100%';
+            imgPreview.style.height = '100%';
+            imgPreview.style.objectFit = 'cover';
+            imgPreview.style.borderRadius = '20px';
+            imgPreview.style.position = 'absolute';
+            imgPreview.style.top = '0';
+            imgPreview.style.left = '0';
+
+            uploadBox.appendChild(imgPreview);
+        };
+        reader.readAsDataURL(file);
+    }
+});
