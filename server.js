@@ -1,15 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./db");
+const db = require("../CGP-FarmLink/backend/db");
 
 // Existing Routes
-const staffRoutes = require("./routes/staff");
+const staffRoutes = require("../CGP-FarmLink/backend/routes/staff");
 
 // New Shop Routes
-const rentItemsRoutes = require("./routes/rentItems");
-const fertilizersRoutes = require("./routes/fertilizers");
-const buyersRoutes = require("./routes/buyers"); 
-const dashboardRoutes = require("./routes/dashboard");
+const rentItemsRoutes = require("../CGP-FarmLink/backend/routes/rentItems");
+const fertilizersRoutes = require("../CGP-FarmLink/backend/routes/fertilizers");
+const buyersRoutes = require("../CGP-FarmLink/backend/routes/buyers"); 
+const dashboardRoutes = require("../CGP-FarmLink/backend/routes/dashboard");
 
 const app = express();
 app.use(cors());
