@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Buyers</title>
+    <link rel="stylesheet" href="../css/viewbuyers.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!--Navbar section-->
+        <nav>
+            <a href="#">Register Farmer</a>
+            <a href="#">View Farmer</a>
+            <a href="#">View Harvest</a>
+            <a href="#">View Shop</a>
+            <a href="#" class="active">View Buyers</a>
+        </nav>
+        
+        <div class="header-section">
+            <h2>View Buyers</h2>
+            <button class="pdf-button">Download PDF</button>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Contact No</th>
+                    <th>Mail</th>
+                    <th>Item ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>  
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="farmerTableBody">
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/viewbuyers.js"></script>
+</body>
+</html>
