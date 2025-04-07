@@ -64,10 +64,9 @@
              <!-- Navbar section -->
 
             <!-- Register Farmer Section -->
-            <!-- Register Farmer Section -->
 <section id="register-farmer" class="content-section">
     <h2>Register Farmer</h2>
-    <form id="farmerForm">  <!-- Add the ID here -->
+    <form id="farmerForm">  
         <div class="form-group">
             <label>First Name</label>
             <input class="input" id="FirstName" type="text" placeholder="" required>
@@ -180,6 +179,7 @@
         </tbody>
     </table>
 </section>
+   <!-- View Farmers Section -->
 
               <!-- View Harvest Section -->
               <section id="view-harvest" class="content-section" style="display: none;">
@@ -226,26 +226,35 @@
     </div>
   
     <!-- Add Product Modal -->
-    <!-- Add Product Modal -->
 <div id="addProductModal" class="modal" style="display: none;">
     <div class="modal-content">
       <span class="close-btn" onclick="closeAddProductPopup()">&times;</span>
       <h2 class="modal-title">Add New Product</h2>
       <form id="addProductForm" class="form-grid">
         <div class="form-left">
-          <input type="text" id="addName" placeholder="Product Name" required />
-          <input type="number" id="addPrice" placeholder="Price (Rs)" required />
-          <input type="text" id="addImage" placeholder="Image URL" required />
-        </div>
-        <div class="form-right">
-          <textarea id="addDescription" placeholder="Description" required></textarea> <!-- NEW -->
-          <input type="text" id="addStock" placeholder="Stock (e.g. 10 or 20 KG)" required />
-          <select id="addCategory" required>
-            <option value="">-- Select Category --</option>
-            <option value="rent">Rent Item</option>
-            <option value="fert">Fertilizer</option>
-          </select>
-        </div>
+            <label for="addName">Product Name</label>
+            <input type="text" id="addName" placeholder="e.g. Organic Compost" required />
+    
+            <label for="addPrice">Price (Rs)</label>
+            <input type="number" id="addPrice" placeholder="e.g. 1000" required />
+    
+            <label for="addImage">Image URL</label>
+            <input type="text" id="addImage" placeholder="Paste image URL here" required />
+          </div>
+          <div class="form-right">
+            <label for="addDescription">Description</label>
+            <textarea id="addDescription" placeholder="Short product description..." required></textarea>
+    
+            <label for="addStock">Stock</label>
+            <input type="text" id="addStock" placeholder="e.g. 10 or 20 KG" required />
+    
+            <label for="addCategory">Select Category</label>
+            <select id="addCategory" required>
+              <option value="">-- Select Category --</option>
+              <option value="rent">Rent Item</option>
+              <option value="fert">Fertilizer</option>
+            </select>
+          </div>
         <div class="form-actions">
           <button type="submit" class="submit-btn">Add Product</button>
         </div>
@@ -254,26 +263,39 @@
   </div>
 
   <!-- Edit Product Modal -->
-<div id="editProductModal" class="modal" style="display: none;">
-    <div class="modal-content">
+  <div id="editProductModal" class="modal" style="display: none;">
+    <div class="modal-content custom-modal">
       <span class="close-btn" onclick="closeEditProductPopup()">&times;</span>
       <h2 class="modal-title">Edit Product</h2>
       <form id="editProductForm" class="form-grid">
-        <input type="hidden" id="editProductId">
+        <input type="hidden" id="editProductId" />
+        
         <div class="form-left">
+          <label for="editName">Product Name</label>
           <input type="text" id="editName" placeholder="Product Name" required />
-          <input type="number" id="editPrice" placeholder="Price (Rs)" required />
-          <input type="text" id="editImage" placeholder="Image URL" required />
+  
+          <label for="editPrice">Price (Rs)</label>
+          <input type="number" id="editPrice" placeholder="e.g. 2000" required />
+  
+          <label for="editImage">Image URL</label>
+          <input type="text" id="editImage" placeholder="Paste new image URL" required />
         </div>
+  
         <div class="form-right">
-          <textarea id="editDescription" placeholder="Product Description" required></textarea>
-          <input type="text" id="editStock" placeholder="Stock" required />
+          <label for="editDescription">Description</label>
+          <textarea id="editDescription" placeholder="Product description..." required></textarea>
+  
+          <label for="editStock">Stock</label>
+          <input type="text" id="editStock" placeholder="e.g. 5 or 10 KG" required />
+  
+          <label for="editCategory">Select Category</label>
           <select id="editCategory" required>
             <option value="">-- Select Category --</option>
             <option value="rent">Rent Item</option>
             <option value="fert">Fertilizer</option>
           </select>
         </div>
+  
         <div class="form-actions">
           <button type="submit" class="submit-btn">Save Changes</button>
         </div>
@@ -282,10 +304,10 @@
   </div>
   
   
+  
   </section>
   
-            
-            <!-- View Shop Section -->
+ <!-- View Shop Section -->
 
  <!-- View Buyers Section -->
  <section id="view-buyers" class="content-section" style="display: none;">
