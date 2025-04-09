@@ -1,5 +1,5 @@
 //Card section
-
+    
              // Function to format the date as "Monday, 28 January"
 function formatDate() {
     const now = new Date();
@@ -44,31 +44,17 @@ function updateWeather() {
     document.getElementById("weather-icon").className = weatherData.iconClass;
 }
 
-             // Simulated statistics data update
-function updateStats() {
-    const statsData = {
-        staffCount: "259",
-        farmersCount: "1,110",
-        harvestCount: "45,000kg",
-        buyersCount: "134"
-    };
-    
-    document.getElementById("staff-count").textContent = statsData.staffCount;
-    document.getElementById("farmers-count").textContent = statsData.farmersCount;
-    document.getElementById("harvest-count").textContent = statsData.harvestCount;
-    document.getElementById("buyers-count").textContent = statsData.buyersCount;
-}
+
 
              // Update all data
 function updateData() {
     formatDate();
     updateTime();
     updateWeather();
-    updateStats();
 }
 
              // Call updateData every second to keep the time updated
-setInterval(updateData, 1000); 
+setInterval(updateData, 1000);
 updateData();
 
 
