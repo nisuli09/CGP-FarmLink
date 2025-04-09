@@ -331,19 +331,20 @@ async function loadBuyers() {
 }
 
 
-async function loadDashboardSummary() {
-  try {
-    const res = await fetch("http://localhost:5000/api/dashboard/summary");
-    const data = await res.json();
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("http://localhost:5000/api/dashboard/summary")
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("staff-count").textContent = data.staff;
+      document.getElementById("farmers-count").textContent = data.farmers;
+      document.getElementById("buyers-count").textContent = data.buyers;
+      document.getElementById("harvest-count").textContent = `${data.totalHarvest}kg`;
+    })
+    .catch((err) => {
+      console.error("Failed to load summary data:", err);
+    });
+});
 
-    document.getElementById("staff-count").innerText = data.staff;
-    document.getElementById("farmers-count").innerText = data.farmers;
-    document.getElementById("buyers-count").innerText = data.buyers;
-    document.getElementById("harvest-count").innerText = `${data.totalHarvest.toLocaleString()}kg`;
-  } catch (err) {
-    console.error("Failed to load dashboard summary:", err);
-  }
-}
 
 
 
@@ -355,5 +356,5 @@ window.onload = () => {
   loadFertilizers();
   switchShopTab("rent");
   loadBuyers();
-  loadDashboardSummary()
+
 };
