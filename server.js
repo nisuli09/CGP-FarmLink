@@ -7,12 +7,17 @@ const path = require('path');
 const fs = require('fs');
 const db = require("../CGP-FarmLink/backend/db");
 // Initialize Express app
-const port = 3000;
-const app = express();
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.json());
+const port1 = 3000;
+const port2 = 4000;
+const app1 = express();
+const app2 = express();
+app1.use(cors());
+app1.use(bodyParser.urlencoded({ extended: true }));
+app1.use(bodyParser.json());
+
+app2.use(cors());
+app2.use(bodyParser.urlencoded({ extended: true }));
+app2.use(bodyParser.json());
 
 // Existing Routes
 const staffRoutes = require("../CGP-FarmLink/backend/routes/staff");
@@ -103,7 +108,7 @@ db.connect(err => {
 });
 
 // Main page route
-app.get('/', (req, res) => {
+app1.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
@@ -112,17 +117,17 @@ app.get('/', (req, res) => {
 // -------------------------------
 
 // Route to serve the rent items page
-app.get('/rent-items', (req, res) => {
+app1.get('/rent-items', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/rent.html'));
 });
 
 // Route to serve the rent item details page
-app.get('/product-details.html', (req, res) => {
+app1.get('/product-details.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/rent-productdetails.html'));
 });
 
 // Route to serve the fertilizer item details page
-app.get('/product-details.html', (req, res) => {
+app1.get('/product-details.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/fertilizer-productdetails.html'));
 });
 
