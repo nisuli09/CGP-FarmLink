@@ -1,8 +1,8 @@
-import { connection, db } from "../login/db.functions.js";
+import { connection, db } from "./db.functions.js";
 
 export const user_login = (req, res) => {
     console.log("Login attempt:", req.body.email);
-    
+
     if (!connection) {
         console.error("Database connection failed");
         return res.status(500).send({
@@ -33,11 +33,11 @@ export const user_login = (req, res) => {
                 message: "Database error occurred"
             });
         }
-        
+
         if (result.length > 0) {
             const userType = result[0].type;
             console.log(`User login successful for ${userType}:`, email);
-            
+
             res.send({
                 code: 200,
                 success: true,
